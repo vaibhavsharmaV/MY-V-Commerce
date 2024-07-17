@@ -27,3 +27,46 @@
   width: 100%;
   object-fit: contain; /* Change this from 'cover' to 'contain' to avoid cutting images */
 }
+
+
+
+
+
+
+
+
+
+/* Ensure the product description page has some padding and a max width */
+.container {
+  max-width: 900px;
+}
+
+/* Style for the product image */
+.product-image {
+  max-height: 400px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Smaller title and description text */
+.product-title {
+  font-size: 1.75rem;
+}
+
+.product-description {
+  font-size: 1.1rem;
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 1000px) {
+  .navbar-toggler {
+    display: none !important; /* Hide the navbar toggler on screens smaller than 768px */
+  }
+}

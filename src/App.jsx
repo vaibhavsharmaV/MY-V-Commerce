@@ -38,12 +38,26 @@
 //     });
 //   };
 
+//   const removeFromCart = (itemId) => {
+//     setCart((prevCart) => prevCart.filter((item) => item.id !== itemId));
+//   };
+
+//   const updateQuantity = (itemId, delta) => {
+//     setCart((prevCart) =>
+//       prevCart.map((item) =>
+//         item.id === itemId
+//           ? { ...item, quantity: Math.max(item.quantity + delta, 1) }
+//           : item
+//       )
+//     );
+//   };
+
 //   return (
 //     <Router>
-//       <Header count={cart.length} />
+//       <Header count={cart.reduce((total, item) => total + item.quantity, 0)} />
 //       <Routes>
 //         <Route path="/" element={<ProductList products={products} addToCart={addToCart} />} />
-//         <Route path="/cart" element={<CartList cart={cart} />} />
+//         <Route path="/cart" element={<CartList cart={cart} removeFromCart={removeFromCart} updateQuantity={updateQuantity} />} />
 //       </Routes>
 //     </Router>
 //   );
@@ -60,11 +74,16 @@
 
 
 
+
+
+
+
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import ProductList from './components/ProductList';
 import CartList from './components/CartList';
+import ProductDetail from './components/ProductDetail';
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
@@ -77,7 +96,7 @@ function App() {
       try {
         const response = await fetch('https://fakestoreapi.com/products?limit=18');
         const data = await response.json();
-        setProducts(data); // Set products directly with the fetched data array
+        setProducts(data);
       } catch (error) {
         console.error('Error fetching products:', error);
       }
@@ -119,6 +138,7 @@ function App() {
       <Routes>
         <Route path="/" element={<ProductList products={products} addToCart={addToCart} />} />
         <Route path="/cart" element={<CartList cart={cart} removeFromCart={removeFromCart} updateQuantity={updateQuantity} />} />
+        <Route path="/product/:productId" element={<ProductDetail products={products} />} />
       </Routes>
     </Router>
   );
