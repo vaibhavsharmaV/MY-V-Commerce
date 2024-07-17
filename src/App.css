@@ -30,7 +30,7 @@
 
 
 
-@media (max-width: 1000px) {
+@media (max-width: 768px) {
   .navbar-toggler {
     display: none !important; /* Hide the navbar toggler on screens smaller than 768px */
   }
