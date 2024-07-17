@@ -1,0 +1,29 @@
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.shopping-card {
+  justify-content: space-between;
+  background-color: brown;
+  padding: 20px 30px;
+}
+
+.product-item {
+  padding: 20px;
+}
+
+.shopping-card div {
+  color: black;
+  font-weight: 1000;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+.card img {
+  height: 200px;
+  width: 100%;
+  object-fit: contain; /* Change this from 'cover' to 'contain' to avoid cutting images */
+}
